@@ -1,0 +1,13 @@
+1.
+mb.runSQLQuery(`
+       SELECT Category, count(Category) as Quantity 
+       FROM films
+       Group by Category
+`)
+2.
+mb.runSQLQuery(`
+       SELECT count(*) as Quantity  
+       FROM films
+       Group by Category, Rating
+`)
+3.

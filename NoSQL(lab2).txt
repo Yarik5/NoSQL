@@ -1,0 +1,29 @@
+1.
+db.customers.find(
+     {Country: "China"},
+     {_id:0}).sort(
+     { District:-1, "Last Name":1, "First Name":1}
+         )
+
+2.
+         mb.runSQLQuery(`
+
+       SELECT *
+       FROM customers where (Country = 'China')
+       ORDER BY "District" DESC ,"Last Name", "First Name"
+       
+`)
+
+
+3.
+db.customers.aggregate(
+    
+    {$project: {"First Name":1, "Last Name":1,
+     count:{$size: "$Rentals"}}})
+
+
+
+4.
+db.customers.find(
+    {"Rentals.filmId": {$in : db.films.find({"Category": "Classics"})
+.map((mass_cust)=> {return mass_cust._id;})}})

@@ -1,0 +1,18 @@
+db.inventory.insertOne(
+   { item: "legendary dragon armor", qty: 1 , price: {5000} }
+   { item: "laptop", qty: 1 , price: {500} }
+   { item: "couch", qty: 1 , price: {50} }
+   { item: "nicy", qty: 1 , price: {5} }
+   { item: "trouble", qty: 1 , price: {free} }
+
+)
+
+
+db.inventory.find( { item: "legendary dragon armor"} )
+SELECT * FROM inventory
+
+db.inventory.find( { status: "L" } )
+SELECT * FROM inventory WHERE status = "L"
+
+db.inventory.deleteMany({item: "nicy", qty: 1 , price: {5}})
+{ <field1>: <value1>, >50 }
